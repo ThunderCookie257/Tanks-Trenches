@@ -1,0 +1,17 @@
+{
+  "name": "tanks-trenches",
+  "version": "1.0.0",
+  "description": "A turn based war game.",
+  "main": "server.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "start": "node src/server.js"
+  },
+  "author": "ThunderCookie",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}

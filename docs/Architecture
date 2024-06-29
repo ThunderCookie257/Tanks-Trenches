@@ -1,0 +1,39 @@
+Architecture Design Document for Tanks and Trenches.
+
+Class Game:
+- Maintains board and game state.
+- Collection<Player>
+- <Board>
+
+Abstract Class Board:
+- Abstract class for board representation.
+- Maintains position of Cards in play.
+- Allows for movement of Cards in play.
+
+Class 2PlayerBoard extends Board:
+- 2Player Board variant.
+
+Class Player:
+- Maintains player information.
+- Collection<Card>
+
+Interface Card:
+- Base interface for Troop, Infrastructure, and Strategy classes.
+
+Abstract Class Troop implements Card:
+- Troop class.
+
+Class Infantry, Tank, Artillery, Fighter, Bomber extends Troop:
+- Concrete classes for troops.
+
+Abstract Class Infrastructure implements Card:
+- Infrastructure class.
+
+Class Trench, AA, Railroad, Position extends Infrastructure:
+- Concrete infrastructure classes
+
+Abstract Class Strategy implements Card:
+- Strategy class.
+
+Class Roll, Movement, ReturnFire, DeployInfrantry:
+- Concrete strategy classes.
