@@ -1,0 +1,84 @@
+Tanks & Trenches is a turn based war game.
+This document describes the master rule set and key game features.
+
+Objective:
+- The objective of the game is to capture the enemies' strongholds by defeating them in combat and advancing into their territory.
+
+Key Features:
+- Grid-based board.
+- Card-based action and combat system.
+- Buildable & interactable infrastructure.
+- AI & multiplayer gameplay.
+- 2 player & 4 player variants.
+
+Action System:
+- Game actions include advancing troops, building & attacking infrastructure, deploying and attacking troops, and capturing territory.
+- Cards are split into 3 deck types: Troop, Infrastructure, and Strategy.
+    - Troop cards allow you to deploy troops in friendly territory.
+    - Infrastructure cards allow you to build infrastructure adjacent to friendly infantry units.
+    - Strategy cards can be used to gain advantage during combat or for other benefits.
+    - Start of game: Each player gets 2 cards of each type.
+    - Each turn: Turn player draws 1 card type of their choice + additional cards if special conditions are met:
+        - Draw 1 extra troop card if you defeated an enemy troop on the previous turn.
+        - Draw 1 extra infrastructure card if you destroyed enemy infrastructure on the previous turn.
+        - Draw 1 extra strategy card if you used no strategy cards on the previous turn (including opponent's turn).
+
+Combat:
+- Dice based combat system that can be augmented with infrastructure or the use of strategy cards.
+- Turn player chooses targets to attack with friendly troops in range (one friendly, enemy unit/tile per combat).
+- Turn player can attack any number of times.
+- Turn player chooses target enemy and friendly troop in range:
+    - Turn player rolls for damage.
+    - Enemy troop returns fire if in range.
+    - Both players may activate combat strategy cards.
+    - Damage dealt and received is calculated, and defeated troops are removed from the board.
+
+Troop movement:
+- Each troop has a movement stat that determines how far they can move per turn.
+- Troop movement can occur before/after combat or any other action.
+- Troops cannot occupy the same tile as other troops but may pass through infrastructure tiles (provided they don't already have troops on them).
+
+Troop cards:
+- Infantry: Can build infrastructure, occupy trenches & AA guns.
+    - Attacks: Ground, Air
+    - Base roll: 1d6
+    - Hit by: 3+
+    - Movement: 2
+    - Range: 2
+- Tank: Can blitz: +2 to movement and damage roll, but destroyed at end of combat.
+    - Attacks: Ground
+    - Base roll: 1d6
+    - Hit by: 5+
+    - Movement: 3
+    - Range: 3
+- Artillery: Cannot reposition once they fire.
+    - Attacks: Ground
+    - Base roll: 1d6
+    - Hit by: 3+
+    - Movement: 1
+    - Range: 5
+- Fighter: Deploy infantry where destroyed (deployed infantry may not attack, move or build until the following turn).
+    - Attacks: Air
+    - Base roll: 1d6
+    - Hit by: 2+
+    - Movement: 3
+    - Range: 3
+- Bomber: Can destroy infrastructure.
+    - Attacks: Ground
+    - Base roll: 1d6
+    - Hit by: 2+
+    - Movement: 2
+    - Range: 1
+
+Infrastructure cards:
+- Trench: Can be occupied by infantry, prevents artillery damage to sheltering troops.
+    - Hit by: Bomber 5+
+- AA Gun: Can be occupied by infantry, powerful defensive tool against aerial units, doesn't hit ground.
+    - Hit by: Bomber 5+
+- Railroad: Can be used to instantly transport ground troops between connected strongholds & strategic positions.
+    - Hit by: Bomber 5+
+- Strategic Position: Allows controller to draw 1 additional card per turn and is an endpoint to railroad tracks, but cannot be placed in starting friendly territory.
+    - Hit by: Bomber 5+
+
+Strategy cards:
+    - Combat cards: +-2 die roll, +2 movement to any troop, enemy cannot return fire, deploy 1 infantry anywhere (tapped until next turn).
