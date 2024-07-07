@@ -29,6 +29,10 @@ class Infantry extends Troop {
         this.range = 2;
         this.deployed = false; // is the troop currently deployed?
     }
+
+    attack(target) {
+        // TODO
+    }
 }
 
 class Tank extends Troop {

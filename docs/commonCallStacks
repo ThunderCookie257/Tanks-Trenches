@@ -1,21 +1,19 @@
 1:
-- Start button -> backend request -> new game -> game.start()
-  - (2x) new player
-    - (6x) new card (2 of each type)
+- Start button -> new Game()
+  - Start a new game.
 
 2:
-- Grid button -> backend request -> game.board.actions(square)
-  - returns actions that can be taken from grid (attack, move, build)
-  - said action buttons are then enabled 
+- Grid button -> game.canBuild(), game.canAttack(), game.canMove()
+  - Need to know which actions can be taken from that grid (attack/build/move)
+  - Respective buttons are enabled.
 
 -- KEY: attack, move, and build buttons are disabled by default, only enabled when a grid is selected
 
 3:
-- Attack button -> backend request -> game.return valid attack targets
+- Attack/build/move button ->  game.attack()/build()/move()
 
-To attack:
--> Select friendly grid -> attack button is enabled -> click attack button -> possible target grids are lit up -> select target grid
+To attack/build/move:
+-> Select grid -> button is enabled -> click button -> possible target grids are lit up -> select target grid
 
-4: Target grid selected -> backend request -> attack happens
-
--- To play a card -> click the card, then click a tile to play it on -- this info is then sent to backend
+4:
+- Playing cards.... TBD

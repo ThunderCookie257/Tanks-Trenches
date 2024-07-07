@@ -1,7 +1,7 @@
 // Import required modules
 const express = require('express');
 const path = require("path");
-const {Game, Board, Player} = require('server/game.js');
+const Game = require('./server/game.js');
 
 // global variables
 var g;
