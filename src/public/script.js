@@ -16,11 +16,31 @@ window.onload = function() {
         })
         .then(data => {
         console.log('Response from server:', data);
-        // TODO: setup game state
+        setUpBoard(data);
         })
         .catch(error => {
         console.error('Error sending request:', error);
         });
+    }
+
+    function setUpBoard(data) {
+        var board = data["board"];
+        var size = board.length;
+
+        var boardDiv = document.getElementById("board");
+        for (let i = 0; i < size; i++) {
+            var row = document.createElement("div");
+            row.classList.add("boardRow");
+            row.id = "row" + i;
+            for (let j = 0; j < size; j++) {
+                var button = document.createElement("button");
+                button.classList.add("boardButton");
+                button.id = "button" + i + j;
+                button.textContent = board[i][j]["square_id"];
+                row.appendChild(button);
+            }
+            boardDiv.appendChild(row);
+        }
     }
     // assign event handlers
     playButton.onclick = play;

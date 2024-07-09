@@ -1,7 +1,7 @@
 // Import required modules
 const express = require('express');
 const path = require("path");
-const Game = require('./server/game.js');
+const {Game} = require('./server/game.js');
 
 // global variables
 var g;
@@ -20,7 +20,7 @@ app.get('/', (req, res) => {
 // new game
 app.get('/newGame', (req, res) => {
   g = new Game();
-  res.send({message:'New game successfully created!'});
+  res.send(g.printState());
 });
 
 // Start the server on port 3000

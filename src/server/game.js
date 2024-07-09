@@ -16,17 +16,39 @@ class Game {
     }
 
     // return true if you can build from given square
+    // is it your turn?
+    // is there already infrastructure there?
+    // do you have an infantry in it or an adjacent square?
+    // do you have anything to build?
     canBuild() {
 
     }
 
     // returns true if you can move from given square
+    // is it your turn?
+    // do you have a troop on the square?
+    // has the troop moved already this turn?
+    // is there at least one valid move target?
     canMove() {
 
     }
 
+    // gets all valid move targets from a square for the troop on that square
+    validMoveTargets() {
+
+    }
+
     // returns true if you can attack from given square
+    // is it your turn?
+    // do you have a troop on the given square?
+    // has the troop already attacked this turn?
+    // is there an enemy troop in range?
     canAttack() {
+
+    }
+
+    // gets all valid attack targets from a square for the troop on that square
+    validAttackTargets() {
 
     }
 
@@ -49,30 +71,64 @@ class Game {
     // returns dict representation of game state
     // should encode everything needed from the FE to render game state
     printState() {
-
+        var state = {
+            "board": this.board.printBoard()
+        };
+        return state;
     }
 };
 
 // a board is made up of squares
 class Board {
     constructor() {
-        this.board = generateNewBoard();
+        this.board = this.generateNewBoard();
     }
 
+    // generates a 9x9 grid of Squares to represent the board state
     generateNewBoard() {
         var board = [];
-        for (let i = 0; i < 80; i++) {
-            var square = new Square(i);
-            board.push(square);
+        var ids = 0;
+        for (let i = 0; i < 8; i++) {
+            var row = [];
+            for (let j = 0; j < 8; j++) {
+                var square = new Square(ids);
+                row.push(square);
+                ids++;
+            }
+            board.push(row);
         }
         return board;
     }
 
-    // return string representation of board
+    // return grid representation of board
     printBoard() {
-
+        var board_string_rep = [];
+        for (let i = 0; i < 8; i++) {
+            var row = [];
+            for (let j = 0; j < 8; j++) {
+                var square = this.board[i][j];
+                var id = square.getId();
+                var troop = square.getTroop();
+                var infrastructure = square.getInfrastructure();
+                var stronghold = square.getStronghold();
+                var troopType = "";
+                var troopId = "";
+                if (troop) {
+                    troopType = troop.type;
+                    troopId = troop.id;
+                }
+                var sq_info = {
+                    "square_id": id,
+                    "troop_type": troopType,
+                    "troop_id": troopId,
+                    "stronghold": stronghold
+                };
+                row.push(sq_info);
+            }
+            board_string_rep.push(row);
+        }
+        return board_string_rep;
     }
-
 };
 
 // board is made up of squares

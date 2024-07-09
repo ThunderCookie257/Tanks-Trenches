@@ -19,7 +19,8 @@ class Troop extends Card {
 
 class Infantry extends Troop {
     constructor(id) {
-        this.id = id,
+        this.id = id;
+        this.type = "Infantry";
         this.attacksGround = true;
         this.attacksAir = true;
         this.isGround = true;
@@ -37,7 +38,8 @@ class Infantry extends Troop {
 
 class Tank extends Troop {
     constructor(id) {
-        this.id = id,
+        this.id = id;
+        this.type = "Tank";
         this.attacksGround = true;
         this.attacksAir = false;
         this.isGround = true;
@@ -51,7 +53,8 @@ class Tank extends Troop {
 
 class Artillery extends Troop {
     constructor(id) {
-        this.id = id,
+        this.id = id;
+        this.type = "Artillery";
         this.attacksGround = true;
         this.attacksAir = false;
         this.isGround = true;
@@ -65,7 +68,8 @@ class Artillery extends Troop {
 
 class Fighter extends Troop {
     constructor(id) {
-        this.id = id,
+        this.id = id;
+        this.type = "Fighter";
         this.attacksGround = false;
         this.attacksAir = true;
         this.isGround = false;
@@ -79,7 +83,8 @@ class Fighter extends Troop {
 
 class Bomber extends Troop {
     constructor(id) {
-        this.id = id,
+        this.id = id;
+        this.type = "Bomber";
         this.attacksGround = true;
         this.attacksAir = false;
         this.isGround = false;
