@@ -45,8 +45,8 @@ class Game {
     // is there already infrastructure there?
     // do you have an infantry in it or an adjacent square?
     // do you have anything to build?
-    canBuild() {
-
+    // cannot build on infrastructure
+    canBuild(id) {
     }
 
     // returns true if you can move from given square
@@ -54,13 +54,31 @@ class Game {
     // do you have a troop on the square?
     // has the troop moved already this turn?
     // is there at least one valid move target?
-    canMove() {
+    canMove(id) {
+        var square = this.board.getSquareById(id);
+        var troop = square.getTroop();
+        if (!troop) { // is there a troop
+            return false;
+        }
+        if (this.p1Turn) { // does troop belong to p1
+            if (!this.p1.troops.includes(troop)) {
+                return false;
+            }
+        } else { // does troop belong to p2
+            if (!this.p1.troops.includes(troop)) {
+                return false;
+            }
+        }
+        if (troop.hasMoved) { // has the troop already moved
+            return false;
+        }
 
+        return this.validMoveTargets(id).length != 0; // is there a valid move target
     }
 
     // gets all valid move targets from a square for the troop on that square
-    validMoveTargets() {
-
+    validMoveTargets(troop, square) {
+        return ["test"];
     }
 
     // returns true if you can attack from given square
@@ -68,12 +86,12 @@ class Game {
     // do you have a troop on the given square?
     // has the troop already attacked this turn?
     // is there an enemy troop in range?
-    canAttack() {
+    canAttack(id) {
 
     }
 
     // gets all valid attack targets from a square for the troop on that square
-    validAttackTargets() {
+    validAttackTargets(id) {
 
     }
 
@@ -89,6 +107,7 @@ class Game {
 
     }
 
+    // make sure to refresh all troop movement status 
     endTurn() {
 
     }

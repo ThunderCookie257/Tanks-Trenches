@@ -9,6 +9,7 @@ class Card {
 class Troop extends Card {
     constructor(id) {
        super(id);
+       this.hasMoved = false;
     }
     
     // check if current troop can attack target, and return roll if target can be attacked.
