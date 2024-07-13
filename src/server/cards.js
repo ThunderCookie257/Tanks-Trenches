@@ -1,14 +1,14 @@
 // Abstract Card class
 class Card {
     constructor(id) {
-        throw new Error("Cannot instantiate abstract class.");
+        this.id = id;
     }
 }
 
 // Abstract Troop Class
 class Troop extends Card {
     constructor(id) {
-        throw new Error("Cannot instantiate abstract class.");
+       super(id);
     }
     
     // check if current troop can attack target, and return roll if target can be attacked.
@@ -19,7 +19,7 @@ class Troop extends Card {
 
 class Infantry extends Troop {
     constructor(id) {
-        this.id = id;
+        super(id);
         this.type = "Infantry";
         this.attacksGround = true;
         this.attacksAir = true;
@@ -38,7 +38,7 @@ class Infantry extends Troop {
 
 class Tank extends Troop {
     constructor(id) {
-        this.id = id;
+        super(id);
         this.type = "Tank";
         this.attacksGround = true;
         this.attacksAir = false;
@@ -53,7 +53,7 @@ class Tank extends Troop {
 
 class Artillery extends Troop {
     constructor(id) {
-        this.id = id;
+        super(id);
         this.type = "Artillery";
         this.attacksGround = true;
         this.attacksAir = false;
@@ -68,7 +68,7 @@ class Artillery extends Troop {
 
 class Fighter extends Troop {
     constructor(id) {
-        this.id = id;
+        super(id);
         this.type = "Fighter";
         this.attacksGround = false;
         this.attacksAir = true;
@@ -83,7 +83,7 @@ class Fighter extends Troop {
 
 class Bomber extends Troop {
     constructor(id) {
-        this.id = id;
+        super(id);
         this.type = "Bomber";
         this.attacksGround = true;
         this.attacksAir = false;
@@ -137,3 +137,8 @@ class ReturnFire extends Strategy {
 class DeployInfantry extends Strategy {
 
 }
+
+module.exports = {
+    Infantry,
+    Tank
+};

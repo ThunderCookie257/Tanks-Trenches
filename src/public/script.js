@@ -36,7 +36,7 @@ window.onload = function() {
                 var button = document.createElement("button");
                 button.classList.add("boardButton");
                 button.id = "button" + i + j;
-                button.textContent = board[i][j]["square_id"];
+                button.textContent = board[i][j]["id"];
                 row.appendChild(button);
             }
             boardDiv.appendChild(row);

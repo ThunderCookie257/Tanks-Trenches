@@ -20,6 +20,7 @@ app.get('/', (req, res) => {
 // new game
 app.get('/newGame', (req, res) => {
   g = new Game();
+  g.setUpSamplePosition();
   res.send(g.printState());
 });
 
